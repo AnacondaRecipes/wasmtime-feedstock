@@ -38,6 +38,7 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
     #- {{ compiler('rust') }} 
     - rust 1.71.1
   run:
