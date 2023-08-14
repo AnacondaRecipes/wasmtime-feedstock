@@ -28,6 +28,7 @@ source:
 build:
   number: 0
   skip: True # [linux and (s390x or ppc64le)]
+  skip: True  # [win and (rust_compiler == 'rust-gnu')]
   missing_dso_whitelist:
     - lib/libgcc_s.so.1
     - $RPATH/libpthread.so.0
@@ -39,17 +40,18 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    #- {{ compiler('rust') }} 
-    - rust 1.71.1
+    - {{ compiler('rust') }} 
+
   run:
     - libgcc-ng                  # [linux]
     - python  
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libwasmtime.so    # [linux]
+    - wasmtime --help
+    - test -f ${PREFIX}/lib/libwasmtime.so      # [linux]
     - test -f ${PREFIX}/lib/libwasmtime.dylib   # [osx]
-    - if not exist %PREFIX%\lib\wasmtime.dll exit 1    # [win]
+    - if not exist %PREFIX%\Library\bin\wasmtime.dll exit 1    # [win]
 
 about:
   home: https://github.com/bytecodealliance/wasmtime

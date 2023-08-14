@@ -2,6 +2,9 @@
 cargo build --release
 cargo build --release --manifest-path crates/c-api/Cargo.toml
 
+mkdir -p ${PREFIX}/bin
+mkdir -p ${PREFIX}/lib
+
 cp ${SRC_DIR}/target/release/wasmtime ${PREFIX}/bin/
 
 if [ `uname` == Darwin ]; then  
