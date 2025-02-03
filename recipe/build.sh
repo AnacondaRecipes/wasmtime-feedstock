@@ -6,8 +6,5 @@ mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/lib
 
 cp ${SRC_DIR}/target/release/wasmtime ${PREFIX}/bin/
-cp ${SRC_DIR}/target/release/wasmtime.d ${PREFIX}/bin/
 cp ${SRC_DIR}/target/release/libwasmtime_c_api.rlib ${PREFIX}/lib/
-cp ${SRC_DIR}/target/release/libwasmtime_c_api.d ${PREFIX}/lib/
 cp ${SRC_DIR}/target/release/libwasmtime_cli.rlib ${PREFIX}/lib/
-cp ${SRC_DIR}/target/release/libwasmtime_cli.d ${PREFIX}/lib/
