@@ -1,10 +1,15 @@
 #!/bin/bash
+echo "Building binaries..."
 cargo build --release
-cargo build --release --manifest-path crates/c-api/Cargo.toml
+
+echo "Building C libraries..."
+cmake -S crates/c-api -B target/c-api --install-prefix "$(pwd)/artifacts"
+cmake --build target/c-api
+cmake --install target/c-api
+
 
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/lib
 
 cp ${SRC_DIR}/target/release/wasmtime ${PREFIX}/bin/
-cp ${SRC_DIR}/target/release/libwasmtime_c_api.rlib ${PREFIX}/lib/
-cp ${SRC_DIR}/target/release/libwasmtime_cli.rlib ${PREFIX}/lib/
+cp ${SRC_DIR}/artifacts/lib/libwasmtime$SHLIB_EXT ${PREFIX}/lib/
