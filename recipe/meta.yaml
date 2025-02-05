@@ -26,6 +26,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - cmake
+    - make  # [linux]
 
   run:
     - libgcc-ng                  # [linux]
