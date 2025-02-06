@@ -11,6 +11,17 @@ cmake --install target/c-api
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/lib
 
+ls ${SRC_DIR}/artifacts/lib
+ls ${SRC_DIR}/target/release
+
+UNAME_S=$(uname -s)
+case "$UNAME_S" in
+  Darwin*)
+    LIBDIR="lib";;
+  *)
+    LIBDIR="lib64";;
+esac
+
 cp ${SRC_DIR}/target/release/wasmtime ${PREFIX}/bin/
-cp ${SRC_DIR}/artifacts/lib/libwasmtime$SHLIB_EXT ${PREFIX}/lib/
+cp ${SRC_DIR}/artifacts/${LIBDIR}/libwasmtime$SHLIB_EXT ${PREFIX}/lib/
 cp ${SRC_DIR}/target/release/libwasmtime_cli.rlib ${PREFIX}/lib/
