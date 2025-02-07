@@ -11,9 +11,6 @@ cmake --install target/c-api
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/lib
 
-ls ${SRC_DIR}/artifacts/lib
-ls ${SRC_DIR}/target/release
-
 UNAME_S=$(uname -s)
 case "$UNAME_S" in
   Darwin*)
