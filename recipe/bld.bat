@@ -1,7 +1,7 @@
 cargo build --release
 
 echo "Building C libraries..."
-cmake -S crates\c-api -B target\c-api --install-prefix "$(pwd)\artifacts"
+cmake -S crates\c-api -B target\c-api --install-prefix "%SRC_DIR%\artifacts"
 cmake --build target\c-api
 cmake --install target\c-api
 
