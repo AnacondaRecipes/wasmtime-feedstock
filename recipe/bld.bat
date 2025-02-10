@@ -1,5 +1,7 @@
 cargo build --release
 
+echo %CMAKE_GENERATOR%
+
 cmake -G"%CMAKE_GENERATOR%" -S crates/c-api -B target/c-api --install-prefix "%SRC_DIR%/artifacts"
 cmake -G"%CMAKE_GENERATOR%" --build target/c-api
 cmake -G"%CMAKE_GENERATOR%" --install target/c-api
