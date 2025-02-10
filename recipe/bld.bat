@@ -6,5 +6,4 @@ cmake --install target/c-api
 
 copy %SRC_DIR%\target\release\wasmtime.exe %LIBRARY_BIN%
 copy %SRC_DIR%\target\release\libwasmtime_cli.rlib  %LIBRARY_LIB%
-copy %SRC_DIR%\artifacts\lib\wasmtime.dll  %LIBRARY_BIN%
-copy %SRC_DIR%\artifacts\lib\wasmtime.dll.a  %LIBRARY_LIB%
+copy %SRC_DIR%\artifacts\lib\wasmtime.dll  %LIBRARY_LIB%
