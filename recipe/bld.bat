@@ -1,6 +1,6 @@
 cargo build --release
 
-echo %CMAKE_GENERATOR%
+SET CMAKE_GENERATOR = "Visual Studio 16 2019"
 
 cmake -G"%CMAKE_GENERATOR%" -S crates/c-api -B target/c-api --install-prefix "%SRC_DIR%/artifacts"
 cmake -G"%CMAKE_GENERATOR%" --build target/c-api
