@@ -36,6 +36,8 @@ test:
     - wasmtime --help
     - test -f ${PREFIX}/lib/libwasmtime.so      # [linux]
     - test -f ${PREFIX}/lib/libwasmtime.dylib   # [osx]
+    - if not exist %PREFIX%\Library\bin\wasmtime.dll exit 1    # [win]
+    - if not exist %PREFIX%\Library\lib\wasmtime.dll.lib exit 1    # [win]
 
 about:
   home: https://github.com/bytecodealliance/wasmtime
