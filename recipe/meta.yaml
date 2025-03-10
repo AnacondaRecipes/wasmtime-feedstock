@@ -1,5 +1,5 @@
 {% set name = "wasmtime" %}
-{% set version = "11.0.1" %}
+{% set version = "29.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,10 @@ package:
 
 source:
   - url: https://github.com/bytecodealliance/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 681d03d9ebf63697edf8b6c7df460aca6ecc0058106b07f8ac049a0b2a07308b
-
-  - url: https://github.com/WebAssembly/WASI/archive/0ba0c5e2e37625ca5a6d3e4255a998dfaa3efc52.tar.gz
-    sha256: 1a0dce1333fa5d588a09d81acd63a8eb1e13296768f24cb348ceffaf5e6f51fd
-    folder: crates/wasi-common/WASI
-
-  - url: https://github.com/WebAssembly/wasi-crypto/archive/67d9821f2763f4626a97c70c411ccb92a2047712.tar.gz
-    sha256: 49ebe4479ffefe191208b9bc7ab9588fc9ce896ef43221d0d241789a71224bd1
-    folder: crates/wasi-crypto/spec
-
-  - url: https://github.com/WebAssembly/wasi-nn/archive/8adc5b9b3bb8f885d44f55b464718e24af892c94.tar.gz
-    sha256: 65748477f6d834c2d41de6bbe773254c395e4ddeae3461f84997c58dbf6276be
-    folder: crates/wasi-nn/spec
-
-  - url: https://github.com/WebAssembly/wasi-http/archive/1c95bc21dbd193b046e4232d063a82c8b5ba7994.tar.gz
-    sha256: 8d0a31a4265f610627a86aa7766d4f511b23a19f9c06d6c9febbf29f02cb4f64
-    folder: crates/wasi-http/wasi-http
+    sha256: 0b3e2823b5a9155764bd1a5cba2f0e9f3069c407a5c329cce1f58dde6e67cd9d
 
 build:
-  number: 1
+  number: 0
   skip: True # [linux and (s390x or ppc64le)]
   skip: True  # [win and (rust_compiler == 'rust-gnu')]
   missing_dso_whitelist:
@@ -40,7 +24,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('rust') }} 
+    - {{ compiler('rust') }}
+    - cmake
+    - make  # [linux]
 
   run:
     - libgcc-ng                  # [linux]
