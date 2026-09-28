@@ -1,16 +1,16 @@
 {% set name = "wasmtime" %}
-{% set version = "29.0.0" %}
+{% set version = "49.0.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   - url: https://github.com/bytecodealliance/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 0b3e2823b5a9155764bd1a5cba2f0e9f3069c407a5c329cce1f58dde6e67cd9d
+    sha256: 5d5af18b1f21e354186a51958ac2e2a02f186c06df7ff606511542b5d5449459
 
 build:
-  number: 1
+  number: 0
   skip: True # [linux and (s390x or ppc64le)]
   skip: True  # [win and (rust_compiler == 'rust-gnu')]
   missing_dso_whitelist:
@@ -28,7 +28,6 @@ requirements:
     - {{ compiler('rust') }}
     - cmake
     - make  # [linux]
-
   run:
     - libgcc-ng                  # [linux]
 
@@ -44,9 +43,9 @@ about:
   home: https://github.com/bytecodealliance/wasmtime
   summary: A WebAssembly runtime powered by Wasmtime
   description: |
-   Wasmtime is a Bytecode Alliance project that is a standalone wasm-only optimizing runtime for WebAssembly and WASI. 
-   It runs WebAssembly code outside of the Web, and can be used both as a command-line utility 
-   or as a library embedded in a larger application.
+    Wasmtime is a Bytecode Alliance project that is a standalone wasm-only optimizing runtime for WebAssembly and WASI. 
+    It runs WebAssembly code outside of the Web, and can be used both as a command-line utility 
+    or as a library embedded in a larger application.
   license_family: Apache
   license: Apache-2.0
   license_file: LICENSE

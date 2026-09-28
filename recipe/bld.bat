@@ -1,4 +1,3 @@
-set "RUSTFLAGS=%RUSTFLAGS% -A mismatched_lifetime_syntaxes"
 cargo build --release
 
 cmake -G "Visual Studio 17 2022" -S crates/c-api -B target/c-api --install-prefix "%SRC_DIR%/artifacts"
