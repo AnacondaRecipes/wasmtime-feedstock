@@ -26,7 +26,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
-    - clang {{ libclang_cpp22_1 }}   # [win and arm64]
+    - clang  # [win and arm64]
     - cmake
     - make  # [linux]
   run:
