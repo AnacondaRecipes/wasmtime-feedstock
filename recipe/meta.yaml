@@ -1,18 +1,16 @@
 {% set name = "wasmtime" %}
-{% set version = "49.0.0" %}
+{% set version = "50.0.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: https://github.com/bytecodealliance/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 5d5af18b1f21e354186a51958ac2e2a02f186c06df7ff606511542b5d5449459
+    url: https://github.com/bytecodealliance/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: 5e31bf2f85b0b7a423f1322abdb82b8a7c5112a7ab2c482725ae44311d820353
 
 build:
   number: 0
-  skip: True # [linux and (s390x or ppc64le)]
-  skip: True  # [win and (rust_compiler == 'rust-gnu')]
   missing_dso_whitelist:
     - lib/libgcc_s.so.1
     - $RPATH/libpthread.so.0
@@ -48,7 +46,7 @@ about:
     It runs WebAssembly code outside of the Web, and can be used both as a command-line utility 
     or as a library embedded in a larger application.
   license_family: Apache
-  license: Apache-2.0
+  license: Apache-2.0 WITH LLVM-exception
   license_file: LICENSE
   doc_url: https://docs.wasmtime.dev/
   dev_url: https://github.com/bytecodealliance/wasmtime
