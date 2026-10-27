@@ -46,7 +46,7 @@ about:
     It runs WebAssembly code outside of the Web, and can be used both as a command-line utility 
     or as a library embedded in a larger application.
   license_family: Apache
-  license: Apache-2.0
+  license: Apache-2.0 WITH LLVM-exception
   license_file: LICENSE
   doc_url: https://docs.wasmtime.dev/
   dev_url: https://github.com/bytecodealliance/wasmtime
